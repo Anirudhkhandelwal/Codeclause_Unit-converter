@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <script>
+    function convert() {
+      // Get input values
+      var inputValue = parseFloat(document.getElementById("inputValue").value);
+      var inputUnit = document.getElementById("inputUnit").value;
+      var outputUnit = document.getElementById("outputUnit").value;
+      
+      // Perform conversion
+      var result;
+      if (inputUnit === "meter" && outputUnit === "feet") {
+        result = inputValue * 3.281;
+      } else if (inputUnit === "feet" && outputUnit === "meter") {
+        result = inputValue / 3.281;
+      } else if (inputUnit === outputUnit) {
+        result = inputValue;
+      } else {
+        result = "Invalid conversion";
+      }
+      
+      // Display result
+      document.getElementById("outputValue").innerHTML = result;
+    }
+  </script>
+</head>
+<body>
+  <h1>Unit Converter</h1>
+  
+  <label for="inputValue">Input Value:</label>
+  <input type="number" id="inputValue">
+  
+  <label for="inputUnit">Input Unit:</label>
+  <select id="inputUnit">
+    <option value="meter">Meter</option>
+    <option value="feet">Feet</option>
+  </select>
+  
+  <label for="outputUnit">Output Unit:</label>
+  <select id="outputUnit">
+    <option value="meter">Meter</option>
+    <option value="feet">Feet</option>
+  </select>
+  
+  <button onclick="convert()">Convert</button>
+  
+  <p>Result: <span id="outputValue"></span></p>
+</body>
+</html>
